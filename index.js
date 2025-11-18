@@ -43,9 +43,9 @@ server.registerTool(
     const secretKeyBytes = Buffer.from(privateKey, "hex");
 
     const privateKeyBase58 = bs58.encode(secretKeyBytes);
-    const signer=await createSigner("solana-devnet",privateKeyBase58)
+    const signer=await createSigner("solana",privateKeyBase58)
 
-    const baseURL="https://itsvelocity-velocity.hf.space"
+    const baseURL="https://xvelocity.dev"
     const client = withPaymentInterceptor(
       axios.create({
         baseURL,
@@ -54,7 +54,7 @@ server.registerTool(
       
       signer,
       undefined,
-     { svmConfig: { rpcUrl: "https://api.devnet.solana.com" } }  // or mainnet
+     { svmConfig: { rpcUrl: "https://api.mainnet.solana.com" } }  // or mainnet
   );
 
 
@@ -111,9 +111,9 @@ server.registerTool(
     const secretKeyBytes = Buffer.from(privateKey, "hex");
 
     const privateKeyBase58 = bs58.encode(secretKeyBytes);
-    const signer=await createSigner("solana-devnet",privateKeyBase58)
+    const signer=await createSigner("solana",privateKeyBase58)
 
-    const baseURL="https://itsvelocity-velocity.hf.space"
+    const baseURL="https://xvelocity.dev"
     const client = withPaymentInterceptor(
       axios.create({
         baseURL,
@@ -122,7 +122,7 @@ server.registerTool(
       
       signer,
       undefined,
-     { svmConfig: { rpcUrl: "https://api.devnet.solana.com" } }  // or mainnet
+     { svmConfig: { rpcUrl: "https://api.mainnet.solana.com" } }  // or mainnet
   );
 
      const res = await client.post(`${endpoint}`,body,
@@ -181,4 +181,5 @@ app.listen(port, () => {
 }).on('error', error => {
     console.error('Server error:', error);
     process.exit(1);
+
 });
